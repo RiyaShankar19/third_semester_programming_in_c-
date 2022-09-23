@@ -1,11 +1,11 @@
 #include<iostream>
 using namespace std;
-class T4Tutorials
+class Reverse
 {
 	private:
 		int n,i;
 		public:
-	T4Tutorials()
+	Reverse()
 	{
 		cout<<"Enter number to reverse: ";
 		cin>>n;
@@ -21,6 +21,6 @@ class T4Tutorials
 };
 int main()
 {
-	T4Tutorials r;
+	Reverse r;
 	r.out();
 }
