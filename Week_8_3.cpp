@@ -1,45 +1,91 @@
-// Add members of two different classes using friend functions
 
+#include <cmath>
+#include <cstdio>
+#include <vector>
 #include <iostream>
+#include <algorithm>
 using namespace std;
-
-// forward declaration
-class ClassB;
-
-class ClassA {
-    
+/*Enter your code hear */
+class Person
+{
+    protected:
+      int age;
+      string name;
     public:
-        // constructor to initialize numA to 12
-        ClassA() : numA(12) {}
-        
-    private:
-        int numA;
-        
-         // friend function declaration
-         friend int add(ClassA, ClassB);
+          virtual void getdata(){};
+          virtual void putdata(){};
+};
+class Professor : public Person
+{
+    int publication;
+    static int id1;
+      public:
+       void getdata()
+       {
+           cin>>name;
+           cin>>age;
+           cin>>publication;
+       }
+       void putdata()
+       {
+          cout<<name<<" "<<age<<" "<<publication<<" "<<id1<<endl;
+          id1++;
+       }
+};
+int Professor::id1=1;
+class Student : public Person
+{
+    int marks[6];
+     static int id2;
+  public:
+      int sum=0;
+   void getdata()
+   {
+       cin>>name;
+       cin>>age;
+       for(int i=0;i<=5;i++)
+       {
+          cin>>marks[i];
+          sum=sum+marks[i];
+       }
+   }
+   void putdata()
+   {
+      cout<<name<<" "<<age<<" "<<sum<<" "<<id2<<endl;
+      id2++;
+   }
 };
 
-class ClassB {
+int Student::id2=1;
 
-    public:
-        // constructor to initialize numB to 1
-        ClassB() : numB(1) {}
-    
-    private:
-        int numB;
- 
-        // friend function declaration
-        friend int add(ClassA, ClassB);
-};
+/*--------End Hacker Rank Solution--------*/
 
-// access members of both classes
-int add(ClassA objectA, ClassB objectB) {
-    return (objectA.numA + objectB.numB);
-}
+int main()
+{
 
-int main() {
-    ClassA objectA;
-    ClassB objectB;
-    cout << "Sum: " << add(objectA, objectB);
+    int n, val;
+    cin>>n; //The number of objects that is going to be created.
+    Person *per[n];
+
+    for(int i = 0;i < n;i++)
+    {
+
+        cin>>val;
+        if(val == 1)
+        {
+            // If val is 1 current object is of type Professor
+            per[i] = new Professor;
+
+        }
+        else per[i] = new Student; // Else the current object is of type Student
+
+        per[i]->getdata(); // Get the data from the user.
+
+    }
+
+    for(int i=0;i<n;i++)
+        per[i]->putdata(); // Print the required output for each object.
+
     return 0;
+
 }
