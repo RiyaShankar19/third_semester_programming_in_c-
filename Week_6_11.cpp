@@ -2,6 +2,7 @@
 using namespace std;
 class vol
 {
+    private: 
     int l;
     int b;
     int r;
