@@ -6,6 +6,7 @@
 using namespace std;
 class student
 {
+        private:
         int roll;
         char name[25];
         char add [25];
