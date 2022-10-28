@@ -1,10 +1,8 @@
-// C++ program to read and print students information
-// using two classes and simple inheritance
 
 #include <iostream>
 using namespace std;
 
-// Base class
+
 class std_basic_info {
 private:
     char name[30];
@@ -12,12 +10,12 @@ private:
     char gender;
 
 public:
-    void getBasicInfo(void);
-    void putBasicInfo(void);
+    void getBasicInfo();
+    void putBasicInfo();
 };
 
 // function definitions
-void std_basic_info::getBasicInfo(void)
+void std_basic_info::getBasicInfo()
 {
     cout << "Enter student's basic information:" << endl;
     cout << "Name?: ";
@@ -41,12 +39,12 @@ private:
     char grade;
 
 public:
-    void getResultInfo(void);
-    void putResultInfo(void);
+    void getResultInfo();
+    void putResultInfo();
 };
 
 // Function definitions
-void std_result_info::getResultInfo(void)
+void std_result_info::getResultInfo()
 {
     cout << "Enter student's result information:" << endl;
     cout << "Total Marks?: ";
